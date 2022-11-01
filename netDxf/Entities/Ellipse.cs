@@ -1,4 +1,4 @@
-#region netDxf library licensed under the MIT License
+﻿#region netDxf library licensed under the MIT License
 // 
 //                       netDxf library
 // Copyright (c) 2019-2021 Daniel Carvajal (haplokuon@gmail.com)
@@ -581,7 +581,7 @@ namespace netDxf.Entities
                 axis2 = MathHelper.IsZero(axis2) ? MathHelper.Epsilon : axis2;
 
                 this.Center = transformation * this.Center + translation;
-                this.SetAxis(axis2, axis1);
+                this.SetAxis(Math.Max(axis1, axis2), Math.Min(axis1, axis2));
                 this.Rotation = newRotation * MathHelper.RadToDeg;
                 this.Normal = newNormal;
             }
